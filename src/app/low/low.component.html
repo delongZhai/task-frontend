@@ -1,0 +1,20 @@
+<table [ngClass]="'table table-hover'">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Priority</td>
+            <td>Status</td>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of tasks">
+            <div *ngIf="task?.priority == 'Low'; then thenBlock"></div>
+            <ng-template #thenBlock>
+                <td>{{task?.name}}</td>
+                <td>{{task?.priority}}</td>
+                <td>{{task?.status}}</td>
+            </ng-template>
+        </tr>
+    </tbody>
+</table>
